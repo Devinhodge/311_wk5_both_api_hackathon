@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-//const employeesRouter = require('./routes/employees');
+const employeesRouter = require("./routes/employees");
+
 
 const app = express();
 const port = process.env.PORT || 4001;
@@ -13,6 +14,10 @@ app.get('/', (req, res) => {
 
 app.get('/:emp_no', (req, res) => {
   res.send('Getting Employee by emp #');
+})
+  
+app.get('/firstname/:first_name', (req, res) => {
+  res.send('Getting Employees by first name');
 })
 
 
