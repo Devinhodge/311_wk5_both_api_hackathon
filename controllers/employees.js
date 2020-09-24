@@ -1,16 +1,25 @@
 const mysql = require('mysql')
 const pool = require('../sql/connections')
-const { handleSQLError } = require('../sql/error')
 
 
-const getAllEmployees = (req, res) => {
-    // SELECT ALL USERS
-    pool.query("SELECT * FROM employees", (err, rows) => {
-      if (err) return handleSQLError(res, err)
+const getEmployees = (req, res) => {
+  res.send('getting employees');
+}
+
+
+  const getEmployeesById = (req, res) => {
+    // SELECT USER BY ID
+    let sql = "SELECT * FROM employees WHERE emp_no = ?"
+  
+    sql = mysql.format(sql, req.params['emp_no'])
+  
+    pool.query(sql, (err, rows) => {
       return res.json(rows);
     })
   }
 
+
   module.exports = {
-    getAllEmployees
+    getEmployees,
+    getEmployeesById
   }
