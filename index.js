@@ -8,7 +8,7 @@ const port = process.env.PORT || 4001;
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-  res.send('Welcome to our server!')
+  res.send('Getting Employees');
 })
 
 
