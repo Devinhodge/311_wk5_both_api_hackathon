@@ -7,8 +7,20 @@ const getEmployees = (req, res) => {
 }
 
 
+const getEmployeesById = (req, res) => {
+    // SELECT USER BY ID
+  let sql = "SELECT * FROM employees WHERE emp_no = ?"
+  
+  sql = mysql.format(sql, req.params['emp_no'])
+  
+  pool.query(sql, (err, rows) => {
+    return res.json(rows);
+  })
+}
+
 
 
 
 
 module.exports = { getEmployees, getEmployeesById, getEmployeesByFirstName }
+

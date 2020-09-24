@@ -4,13 +4,9 @@ const router = express.Router()
 
 router.get('/', employeesController.getAllEmployees);
 
-
-
+router.get('/:emp_no', employeesController.getEmployeesById);
 
 router.get('/firstname/:first_name/', employeesController.getEmployeesByFirstName);
-
-
-
 
 
 
