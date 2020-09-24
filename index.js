@@ -1,15 +1,9 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-
+const express = require('express');
+const mysql = require('mysql');
 const app = express();
-const port = process.env.PORT || 4001;
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 3000
 
-app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-  res.send('Welcome to our server!')
-})
-
-app.listen(port, () => {
- console.log(`Web server is listening on port ${port}!`);
-});
+app.listen('3000', () => {
+  console.log ('Server started on port 3000');
