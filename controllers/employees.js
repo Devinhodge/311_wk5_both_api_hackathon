@@ -24,8 +24,14 @@ const getEmployeesById = (req, res) => {
   })
 }
 
+//get by first name, is working --Devin
 const getEmployeesByFirstName = (req, res) => {
-  //should go here devin
+  let sql = "SELECT * FROM ?? WHERE first_name = ?";
+  sql = mysql.format(sql, ['employees', req.params.first_name]);
+  pool.query(sql, (err, rows)=>{
+    if (err) return handleSQLError(res, err)
+    return res.json(rows);
+  })
 }
 
 
