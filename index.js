@@ -19,11 +19,6 @@ app.get('/', (req, res) => {
 // app.get('/:emp_no', (req, res) => {
 //   res.send('Getting Employee by emp #');
 // })
-  
-//THIS NEEDS TO BE IN CONTROLLERS/EMPLOYEES.JS*******************************************************************
-// app.get('/firstname/:first_name', (req, res) => {
-//   res.send('Getting Employees by first name');
-// })
 
 
 app.listen(port, () => {
