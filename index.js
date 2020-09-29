@@ -5,6 +5,8 @@ const managerRouter = require("./routes/manager");
 const salariesRouter = require("./routes/salaries");
 const employeeCountRouter = require("./routes/employeeCount");
 
+const intro = require('./intro.js')
+
 const app = express();
 const port = process.env.PORT || 4001;
 
@@ -16,11 +18,11 @@ app.use('/salaries', salariesRouter);
 app.use('/employeeCount', employeeCountRouter);
 
 app.get('/', (req, res) => {
-  res.send('Welcome to our server!')
+  res.send(intro.intro)
 })
 
 
 
 app.listen(port, () => {
- console.log(`Web server is listening on port ${port}!`);
+  console.log(`Web server is listening on port ${port}!`);
 });
