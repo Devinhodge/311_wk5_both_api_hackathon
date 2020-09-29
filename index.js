@@ -1,24 +1,24 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const employeesRouter = require("./routes/employees");
-
+const managerRouter = require("./routes/manager");
+const salariesRouter = require("./routes/salaries");
+const employeeCountRouter = require("./routes/employeeCount");
 
 const app = express();
 const port = process.env.PORT || 4001;
 
 app.use(bodyParser.json());
 app.use('/employees', employeesRouter);//NEEDED FOR ROUTER JEFF
+;
+app.use('/manager', managerRouter);
+app.use('/salaries', salariesRouter);
+app.use('/employeeCount', employeeCountRouter);
 
 app.get('/', (req, res) => {
   res.send('Welcome to our server!')
 })
 
-
-
-//THIS IS NOT NEEDED**********************************************************
-// app.get('/:emp_no', (req, res) => {
-//   res.send('Getting Employee by emp #');
-// })
 
 
 app.listen(port, () => {
